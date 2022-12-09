@@ -19,9 +19,11 @@ const Login = () => {
     let sesionIniciada= await firebaseiniciarSesion(credenciales.email, credenciales.password, credenciales.User);
 
     if(sesionIniciada){
-      localStorage.setItem("emailLo", credenciales.email);
+      let nombre = document.getElementById('nombre');
+      sessionStorage.setItem("emailLo", credenciales.email);
+      sessionStorage.setItem("nombre", nombre);
       
-      alert('Acceso correcto ' + localStorage.getItem('emailLo'));
+      alert('Acceso correcto ' + sessionStorage.getItem('emailLo') + ' ' + sessionStorage.getItem('nombre'));
       navigate('/app/dashboard', { replace: true });
     }else{
       alert("Credenciales incorrectas")
@@ -46,6 +48,7 @@ const Login = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
+              nombre: 'Juanito',
               email: 'demo@devias.io',
               password: 'Password123'
             }}
@@ -70,22 +73,35 @@ const Login = () => {
                     color="textPrimary"
                     variant="h2"
                   >
-                    Sign in
+                    Logueate
                   </Typography>
                   <Typography
                     color="textSecondary"
                     gutterBottom
                     variant="body2"
                   >
-                    Sign in on the internal platform
+                    Regístrate en la plataforma interna
                   </Typography>
                 </Box>
                 
                 <TextField
+                  fullWidth
+                  helperText={touched.nombre && errors.nombre}
+                  label= "Nombre"
+                  margin="normal"
+                  name="nombre"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  type="text"
+                  value={values.nombre}
+                  variant="outlined"
+                />
+
+                <TextField
                   error={Boolean(touched.email && errors.email)}
                   fullWidth
                   helperText={touched.email && errors.email}
-                  label="Email Address"
+                  label="Email"
                   margin="normal"
                   name="email"
                   onBlur={handleBlur}

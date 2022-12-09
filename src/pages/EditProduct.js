@@ -20,8 +20,8 @@ import {
 const EditProduct = () => {
   const navigate = useNavigate();
 
-  const crearCliente = (cliente) =>{
-    firebaseCrear('clientes', cliente);
+  const crearProducto = (producto) =>{
+    firebaseCrear('productos', producto);
     navigate('/app/products', { replace: true }); 
     };
 
@@ -42,21 +42,21 @@ const EditProduct = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: '',
-              firstName: '',
-              lastName: '',
-              phone: '',
+              description: '',
+              media: '',
+              title: '',
+              totalDownload: '',
             }}
             validationSchema={
             Yup.object().shape({
-              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-              firstName: Yup.string().max(255).required('First name is required'),
-              phone: Yup.string().max(60),
-              lastName: Yup.string().max(255).required('Last name is required'),
+              description: Yup.string().max(255).required('Description is required'),
+              media: Yup.string().max(255).required('Media is required'),
+              title: Yup.string().max(60).required('Title is required'),
+              totalDownload: Yup.string().max(255),
             })
           }
-            onSubmit={(usuario) => {
-             crearCliente(usuario);            
+            onSubmit={(producto) => {
+             crearProducto(producto);            
             }}
           >
             {({
@@ -79,52 +79,52 @@ const EditProduct = () => {
                 
                 </Box>
                 <TextField
-                  error={Boolean(touched.firstName && errors.firstName)}
+                  error={Boolean(touched.description && errors.description)}
                   fullWidth
-                  helperText={touched.firstName && errors.firstName}
-                  label="First name"
+                  helperText={touched.description && errors.description}
+                  label="Descripción"
                   margin="normal"
-                  name="firstName"
+                  name="description"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.firstName}
+                  value={values.description}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.lastName && errors.lastName)}
+                  error={Boolean(touched.media && errors.media)}
                   fullWidth
-                  helperText={touched.lastName && errors.lastName}
-                  label="Last name"
+                  helperText={touched.media && errors.media}
+                  label="Media"
                   margin="normal"
-                  name="lastName"
+                  name="media"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.lastName}
+                  value={values.media}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.email && errors.email)}
+                  error={Boolean(touched.title && errors.title)}
                   fullWidth
-                  helperText={touched.email && errors.email}
-                  label="Email Address"
+                  helperText={touched.title && errors.title}
+                  label="Title"
                   margin="normal"
-                  name="email"
+                  name="title"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="email"
-                  value={values.email}
+                  type="text"
+                  value={values.title}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.phone && errors.phone)}
+                  error={Boolean(touched.totalDownload && errors.totalDownload)}
                   fullWidth
-                  helperText={touched.phone && errors.phone}
-                  label="Phone number"
+                  helperText={touched.totalDownload && errors.totalDownload}
+                  label="totalDownload"
                   margin="normal"
-                  name="phone"
+                  name="totalDownload"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.phone}
+                  value={values.totalDownload}
                   variant="outlined"
                 />
                 <Box sx={{ py: 2 }}>

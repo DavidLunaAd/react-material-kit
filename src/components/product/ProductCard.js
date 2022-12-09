@@ -93,7 +93,7 @@ const ProductCard = ({ product, ...rest }) => {
               sx={{ pl: 1 }}
               variant="body2"
             >
-              {product.totalDownloads}
+              {product.totalDownload}
               {' '}
               Downloads
             </Typography>

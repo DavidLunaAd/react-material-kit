@@ -21,12 +21,6 @@ const ProductListToolbar = (props) => {
         justifyContent: 'flex-end'
       }}
     >
-      <Button>
-        Import
-      </Button>
-      <Button sx={{ mx: 1 }}>
-        Export
-      </Button>
       <Button
       onClick={() =>{
         navigate('/app/product-new', { replace: true }); 
@@ -34,7 +28,7 @@ const ProductListToolbar = (props) => {
         color="primary"
         variant="contained"
       >
-        Add product
+        Crear producto
       </Button>
     </Box>
     <Box sx={{ mt: 3 }}>

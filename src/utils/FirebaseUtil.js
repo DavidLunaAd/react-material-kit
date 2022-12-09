@@ -50,8 +50,8 @@ const analytics = getAnalytics(app);
 
 }
 
-export function firebaseRegistrarUsuario(email, password){
-  createUserWithEmailAndPassword(getAuth(), email, password)
+export function firebaseRegistrarUsuario(firstName, email, password){
+  createUserWithEmailAndPassword(getAuth(),firstName, email, password)
   .then(credenciales =>{
     //credenciales.user.email
   })
