@@ -1,6 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import DashboardLayout from './components/DashboardLayout';
 import MainLayout from './components/MainLayout';
+import FetchExample from './components/product/FetchExample';
 import Account from './pages/Account';
 import CustomerList from './pages/CustomerList';
 import Dashboard from './pages/Dashboard';
@@ -24,7 +25,9 @@ const routes = [
       { path: 'product-new', element: <EditProduct /> },
       { path: 'products', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },
+      { path: 'fetch', element: <FetchExample/> },
       { path: '*', element: <Navigate to="/404" /> }
+
     ]
   },
   {

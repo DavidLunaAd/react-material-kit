@@ -18,6 +18,7 @@ import {
 } from '@material-ui/core';
 import getInitials from '../../utils/getInitials';
 import { firebaseEliminar } from 'src/utils/FirebaseUtil';
+import Cliente from '../account/Cliente';
 
 const CustomerListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
@@ -71,6 +72,13 @@ const CustomerListResults = ({ customers, ...rest }) => {
     setPage(newPage);
   };
 
+  const seleccionado = (id) => {
+    console.log(id)
+    return(
+      <Cliente></Cliente>
+    )
+  } 
+
   return (
     <Card {...rest}>
       <PerfectScrollbar>
@@ -115,7 +123,13 @@ const CustomerListResults = ({ customers, ...rest }) => {
                         display: 'flex'
                       }}
                     >
-                      <Typography color="textPrimary" variant="body1">
+                      <Typography 
+                        onClick={() => {
+
+                          seleccionado(customer.id)
+
+                        }}
+                        color="textPrimary" variant="body1" >
                         {customer.firstName} {customer.lastName}
                       </Typography>
                     </Box>

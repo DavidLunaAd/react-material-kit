@@ -19,9 +19,10 @@ const Login = () => {
     let sesionIniciada= await firebaseiniciarSesion(credenciales.email, credenciales.password, credenciales.User);
 
     if(sesionIniciada){
-      let nombre = document.getElementById('nombre');
+      let nombre = document.getElementById("nombre");
       sessionStorage.setItem("emailLo", credenciales.email);
       sessionStorage.setItem("nombre", nombre);
+      sessionStorage.setItem("logged", true);
       
       alert('Acceso correcto ' + sessionStorage.getItem('emailLo') + ' ' + sessionStorage.getItem('nombre'));
       navigate('/app/dashboard', { replace: true });

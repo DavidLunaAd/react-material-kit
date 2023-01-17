@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   AppBar,
@@ -17,13 +17,25 @@ import Logo from './Logo';
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
 
+  
+  // const Acces = () => {
+
+  // const navigate = useNavigate();
+
+  //  if (sessionStorage.getItem('logged') === 'true'){
+  //   navigate('dashboard', { replace: true })
+  //  }else{
+  //   navigate ('login', { replace: true })
+  //  }
+  //  };
+
   return (
     <AppBar
       elevation={0}
       {...rest}
     >
       <Toolbar>
-        <RouterLink to="/">
+        <RouterLink to='/'>
           <Logo />
         </RouterLink>
         <Box sx={{ flexGrow: 1 }} />

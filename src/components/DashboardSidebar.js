@@ -21,6 +21,7 @@ import {
   UserPlus as UserPlusIcon,
   Users as UsersIcon
 } from 'react-feather';
+
 import NavItem from './NavItem';
 
 let name = localStorage.getItem('emailLo');
@@ -63,7 +64,7 @@ const items = [
     title: 'Settings'
   },
   {
-    href: '/',
+    href: '/login',
     icon: LockIcon,
     title: 'Login'
   },

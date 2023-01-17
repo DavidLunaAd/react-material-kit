@@ -102,7 +102,6 @@ objeto.id= uuidv4();
 
 }
 
-
 export async function firebaseEliminar(coleccion, id){
 await deleteDoc(doc(getFirestore(), coleccion, id));
 }
